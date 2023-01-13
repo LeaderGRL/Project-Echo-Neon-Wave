@@ -60,7 +60,7 @@ public class Laser : MonoBehaviour
         laser.AddComponent<Note>();
         laser.GetComponent<Note>().speed = speed;
         laser.AddComponent<EdgeCollider2D>();
-        laser.GetComponent<EdgeCollider2D>().edgeRadius = 0.20f;
+        laser.GetComponent<EdgeCollider2D>().edgeRadius = 0.02f;
         laser.GetComponent<EdgeCollider2D>().isTrigger = true;
         //laser.transform.IsChildOf(container.transform);
         //laser.transform.parent = container.transform;
@@ -149,6 +149,13 @@ public class Laser : MonoBehaviour
             {
                 //Instantiate(rightLaserShapeController, laserPos, Quaternion.Euler(45f, 0, 45f));
                 GameObject cloneLaser = Instantiate(laser, laserPos, Quaternion.Euler(0, 0, 0));
+                if (nLaser == 1)
+                {
+                    cloneLaser.tag = "RL";
+                } else if (nLaser == 2)
+                {
+                    cloneLaser.tag = "LL";
+                }
                 //Destroy(cloneLaser, 5.0f);
                 //System.Array.Clear(laserList, 0, laserList.Count); //clear array
             }

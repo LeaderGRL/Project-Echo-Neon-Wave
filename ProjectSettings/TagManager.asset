@@ -11,6 +11,9 @@ TagManager:
   - LNote
   - RNote
   - FRNote
+  - Music
+  - RL
+  - LL
   layers:
   - Default
   - TransparentFX

@@ -27,18 +27,6 @@ public class Movement_Input : MonoBehaviour
         lMovement = control.Player.LeftLaserMovement;
         lMovement.Enable();
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnDisable()
     {
         rMovement.Disable();
@@ -56,13 +44,13 @@ public class Movement_Input : MonoBehaviour
             laser.turnLeft(GameObject.Find("RightLaserEye"));
         }
 
-            if (lMovement.ReadValue<float>() == -1)
-            {
-                laser.turnLeft(GameObject.Find("LeftLaserEye"));
-            }
-            else if (lMovement.ReadValue<float>() == 1)
-            {
-                laser.turnRight(GameObject.Find("LeftLaserEye"));
-            }
+        if (lMovement.ReadValue<float>() == -1)
+        {
+            laser.turnLeft(GameObject.Find("LeftLaserEye"));
         }
+        else if (lMovement.ReadValue<float>() == 1)
+        {
+            laser.turnRight(GameObject.Find("LeftLaserEye"));
+        }
+    }
 }
