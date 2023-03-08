@@ -227,7 +227,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6558219754552287596, guid: ae75443c08731ca4eb54f3e321a9e6a9, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6558219754552287596, guid: ae75443c08731ca4eb54f3e321a9e6a9, type: 3}
       propertyPath: m_AnchorMax.x
@@ -744,6 +744,11 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 33900eed0a1eeaa4ebcaa08563ca81f0, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae75443c08731ca4eb54f3e321a9e6a9, type: 3}
+--- !u!1 &265587202 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6558219754552287597, guid: ae75443c08731ca4eb54f3e321a9e6a9, type: 3}
+  m_PrefabInstance: {fileID: 1881043852}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &275057347
 GameObject:
   m_ObjectHideFlags: 0
@@ -2430,7 +2435,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6558219754552287596, guid: ae75443c08731ca4eb54f3e321a9e6a9, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6558219754552287596, guid: ae75443c08731ca4eb54f3e321a9e6a9, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3500,7 +3505,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6558219754552287596, guid: ae75443c08731ca4eb54f3e321a9e6a9, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6558219754552287596, guid: ae75443c08731ca4eb54f3e321a9e6a9, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3796,7 +3801,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6558219754552287596, guid: ae75443c08731ca4eb54f3e321a9e6a9, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6558219754552287596, guid: ae75443c08731ca4eb54f3e321a9e6a9, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3928,10 +3933,10 @@ RectTransform:
   - {fileID: 528269643}
   - {fileID: 1010740570}
   - {fileID: 1915647463}
+  - {fileID: 331662926}
   - {fileID: 404295207}
   - {fileID: 798073814}
   - {fileID: 1636909077}
-  - {fileID: 331662926}
   m_Father: {fileID: 1513386119}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4027,6 +4032,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SelectedMusic: {fileID: 0}
+  musicPrefab: {fileID: 265587202}
 --- !u!222 &1883609059
 CanvasRenderer:
   m_ObjectHideFlags: 0

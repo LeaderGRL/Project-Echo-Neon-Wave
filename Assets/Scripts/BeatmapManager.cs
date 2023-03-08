@@ -39,7 +39,7 @@ public class BeatmapManager : MonoBehaviour
     private List<char> laserList;
 
 
-    private GameObject note;
+    [SerializeField]private GameObject note;
     //private GameObject rightLaser;
     //private GameObject leftLaser;
     private SpriteShapeController rightLaserShapeController;
@@ -47,7 +47,7 @@ public class BeatmapManager : MonoBehaviour
     private GameObject rightLaser, leftLaser;
 
     private GameObject groupLine;
-    private GameObject line;
+    [SerializeField]private GameObject line;
 
    
     enum laserPos
@@ -68,7 +68,6 @@ public class BeatmapManager : MonoBehaviour
 
         //laserList = new List<char>();
 
-        note = new GameObject("note");
         rightLaser = new GameObject();
         rightLaser.AddComponent<Laser>();
 
@@ -90,14 +89,13 @@ public class BeatmapManager : MonoBehaviour
     void Start()
     {
         //initReader();
-        initNote();
-        initLine();
+        //initNote();
+        //initLine();
         instanciateLine();
         //initRightLaser();
         //initLeftLaser();
         readBeatmap();
         getNote();
-
         instanciateNote();
     }
 
@@ -129,7 +127,7 @@ public class BeatmapManager : MonoBehaviour
         }
     }
 
-    void initNote()
+    /*void initNote()
     {
         note.transform.position = new Vector3(100f, 0f, 100f);
         note.tag = "Note";
@@ -171,7 +169,7 @@ public class BeatmapManager : MonoBehaviour
         line.GetComponent<Renderer>().enabled = false;
         line.layer = LayerMask.NameToLayer("Lines");
 
-    }
+    }*/
 
     //Read level information
     void readBeatmap()
@@ -299,16 +297,16 @@ public class BeatmapManager : MonoBehaviour
                         switch (j)
                         {
                             case 0:
-                                cloneNote = Instantiate(note, FLPos, Quaternion.Euler(0, 0, 0));
+                                Instantiate(note, FLPos, Quaternion.Euler(0, 0, 0));
                                 break;
                             case 1:
-                                cloneNote = Instantiate(note, LPos, Quaternion.Euler(0, 0, 0));
+                                Instantiate(note, LPos, Quaternion.Euler(0, 0, 0));
                                 break;
                             case 2:
-                                cloneNote = Instantiate(note, RPos, Quaternion.Euler(0, 0, 0));
+                                Instantiate(note, RPos, Quaternion.Euler(0, 0, 0));
                                 break;
                             case 3:
-                                cloneNote = Instantiate(note, FRPos, Quaternion.Euler(0, 0, 0));
+                                Instantiate(note, FRPos, Quaternion.Euler(0, 0, 0));
                                 break;
                         }
                     }
