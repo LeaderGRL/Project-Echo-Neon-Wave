@@ -14,7 +14,9 @@ public class Movement_Input : MonoBehaviour
     private InputAction rMovement;
     private InputAction lMovement;
     private UduinoManager uduinoManager;
-    private float cursorValue;
+    private float rightCursorValue;
+    private float leftCursorValue;
+
 
 
 
@@ -56,7 +58,8 @@ public class Movement_Input : MonoBehaviour
 
     private void FixedUpdate()
     {
-        laser.turnRight(rightLaser, cursorValue);
+        laser.turnRight(rightLaser, rightCursorValue);
+        laser.turnRight(leftLaser, leftCursorValue);
 
         //if (rMovement.ReadValue<float>() == 1)
         //{
@@ -78,12 +81,17 @@ public class Movement_Input : MonoBehaviour
 
     public void DataReceived(string Data, UduinoDevice board)
     {
+        string[] extractData = Data.Split(';');
         //int.TryParse(Data, out cursorValue);
         //float.TryParse(Data, out cursorValue);
-        cursorValue = float.Parse(Data, CultureInfo.InvariantCulture.NumberFormat);
+        //cursorValue = float.Parse(Data, CultureInfo.InvariantCulture.NumberFormat);
         //cursorValue = System.Convert(Data);
 
-        Debug.Log(Data + " : " + cursorValue);
+        leftCursorValue = float.Parse(extractData[0], CultureInfo.InvariantCulture.NumberFormat);
+        rightCursorValue = float.Parse(extractData[1], CultureInfo.InvariantCulture.NumberFormat);
+
+        Debug.Log("left : " + leftCursorValue);
+        Debug.Log("right : " + rightCursorValue);
     }
 
 }

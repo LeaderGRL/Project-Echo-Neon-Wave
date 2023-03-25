@@ -57,12 +57,11 @@ public class LaserEyes : MonoBehaviour
 
     public void turnLeft(GameObject obj, float value)
     {
-        if (obj.transform.position.x >= -4.5)
-        {
+        
             position = obj.transform.position;
-            position.x = -value;
+            position.x = value;
             obj.transform.position = position;
-        }
+        
     }
 
     public void turnRight(GameObject obj, float value)
