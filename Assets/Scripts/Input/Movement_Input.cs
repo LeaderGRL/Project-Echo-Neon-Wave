@@ -7,12 +7,14 @@ using System.Globalization;
 
 public class Movement_Input : MonoBehaviour
 {
-    private LaserEyes laser;
-    public PlayerControl control;
-    public InputAction rMovement;
-    public InputAction lMovement;
-    public UduinoManager uduinoManager;
-    public float cursorValue;
+    [SerializeField] private LaserEyes laser;
+    [SerializeField] private GameObject rightLaser;
+    [SerializeField] private GameObject leftLaser;
+    [SerializeField] public PlayerControl control;
+    private InputAction rMovement;
+    private InputAction lMovement;
+    private UduinoManager uduinoManager;
+    private float cursorValue;
 
 
 
@@ -20,8 +22,9 @@ public class Movement_Input : MonoBehaviour
 
     private void Awake()
     {
-        control = new PlayerControl();
-        laser = new LaserEyes();
+        control = new PlayerControl();        
+        //control = new PlayerControl();
+        //laser = new LaserEyes();
     }
 
     private void OnEnable()
@@ -53,7 +56,7 @@ public class Movement_Input : MonoBehaviour
 
     private void FixedUpdate()
     {
-        laser.turnRight(GameObject.Find("RightLaserEye"), cursorValue);
+        laser.turnRight(rightLaser, cursorValue);
 
         //if (rMovement.ReadValue<float>() == 1)
         //{
