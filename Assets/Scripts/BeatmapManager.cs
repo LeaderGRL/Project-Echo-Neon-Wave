@@ -240,7 +240,7 @@ public class BeatmapManager : MonoBehaviour
             //Debug.Log(System.Linq.Enumerable.ElementAt(noteList, j));
             //Debug.Log(row[j][j]);
             //float posY = 72f - 25f;
-            float posY = 0;
+            float posY = 20; //De base c'est a 0
 
             for (int k = 0; k <= row[j].Count - 1; k++)
             {
