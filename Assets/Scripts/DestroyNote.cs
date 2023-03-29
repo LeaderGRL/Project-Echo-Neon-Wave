@@ -23,13 +23,18 @@ public class DestroyNote : MonoBehaviour
     {
         
     }
-    
-    public IEnumerator destroyInput(GameObject activator, Color pressedColor, Color oldColor)
+
+    public IEnumerator destroyInput(GameObject activator, Color pressedColor, Color oldColor, int input)
     {
         activator.GetComponent<SpriteRenderer>().color = new Color(pressedColor.r, pressedColor.g, pressedColor.b);
 
+        //if (input == 1) { 
+        //} else
+        //{
+        //    activator.GetComponent<SpriteRenderer>().color = new Color(oldColor.r, oldColor.g, oldColor.b);
+        //}
+
         yield return new WaitForSeconds(0.1f);
-        activator.GetComponent<SpriteRenderer>().color = new Color(oldColor.r, oldColor.g, oldColor.b);
     }
 
     public void destroyNote(GameObject note)

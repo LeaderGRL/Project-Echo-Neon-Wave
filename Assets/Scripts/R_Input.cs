@@ -9,6 +9,10 @@ public class R_Input : ButtonActivator
     public InputAction RDestroy;
     public Color pressedColor;
     public Color oldColor;
+    public Movement_Input input;
+    private GameObject collidNote;
+    private float remainingTime;
+    private bool disable = false;
     private void Awake()
     {
         note = new GameObject();
@@ -25,10 +29,41 @@ public class R_Input : ButtonActivator
         {
             if (ctx.interaction is TapInteraction)
             {
-                StartCoroutine(destroyNote.destroyInput(this.gameObject, pressedColor, oldColor));
+              //  StartCoroutine(destroyNote.destroyInput(this.gameObject, pressedColor, oldColor));
             }
         };
+
+        if (input.R == 1)
+        {
+          //  StartCoroutine(destroyNote.destroyInput(this.gameObject, pressedColor, oldColor));
+        }
     }
+
+    public void ButtonPressed()
+    {
+        if (input.R == 0)
+            this.GetComponent<SpriteRenderer>().color = new Color(oldColor.r, oldColor.g, oldColor.b);
+
+
+        if (input.R == 1 && remainingTime < 5f && disable == false)
+        {
+            StartCoroutine(destroyNote.destroyInput(this.gameObject, pressedColor, oldColor, input.R));
+            remainingTime += 1;
+            destroyNote.destroyNote(collidNote);
+            collidNote = null;
+
+        }
+        else
+        {
+            remainingTime = 0;
+            disable = true;
+            if (disable && input.R == 0)
+            {
+                disable = false;
+            }
+        }
+    }
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -49,14 +84,14 @@ public class R_Input : ButtonActivator
     private void OnTriggerEnter2D(Collider2D collision)
     {
         note = collision.gameObject;
-        
+        collidNote = note;
         if (note.tag == "RNote")
         {
             RDestroy.performed += ctx =>
             {
                 if (ctx.interaction is TapInteraction)
                 {
-                    StartCoroutine(destroyNote.destroyInput(this.gameObject, pressedColor, oldColor));
+                  //  StartCoroutine(destroyNote.destroyInput(this.gameObject, pressedColor, oldColor));
                     //Destroy(note);
                     destroyNote.destroyNote(note);
                     Debug.Log(note);

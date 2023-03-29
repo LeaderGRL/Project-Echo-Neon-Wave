@@ -16,6 +16,7 @@ public class Movement_Input : MonoBehaviour
     private UduinoManager uduinoManager;
     private float rightCursorValue;
     private float leftCursorValue;
+    public int FL = 1, L, R, FR = 1;
 
 
 
@@ -87,11 +88,21 @@ public class Movement_Input : MonoBehaviour
         //cursorValue = float.Parse(Data, CultureInfo.InvariantCulture.NumberFormat);
         //cursorValue = System.Convert(Data);
 
+        Debug.Log(Data);
         leftCursorValue = float.Parse(extractData[0], CultureInfo.InvariantCulture.NumberFormat);
         rightCursorValue = float.Parse(extractData[1], CultureInfo.InvariantCulture.NumberFormat);
-
+        FL = int.Parse(extractData[2], CultureInfo.InvariantCulture.NumberFormat);
+        L = int.Parse(extractData[3], CultureInfo.InvariantCulture.NumberFormat);
+        R = int.Parse(extractData[4], CultureInfo.InvariantCulture.NumberFormat);
+        FR = int.Parse(extractData[5], CultureInfo.InvariantCulture.NumberFormat);
+        
         Debug.Log("left : " + leftCursorValue);
         Debug.Log("right : " + rightCursorValue);
+        Debug.Log("FL :" + FL);
+        Debug.Log("L :" + L);
+        Debug.Log("R :" + R);
+        Debug.Log("FR :" + FR);
+
     }
 
 }

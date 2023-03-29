@@ -9,6 +9,10 @@ public class FL_Input : ButtonActivator
     public InputAction FLDestroy;
     public Color pressedColor;
     public Color oldColor;
+    public Movement_Input input;
+    private float remainingTime = 0f;
+    private bool disable;
+    private GameObject collidNote;
     private void Awake()
     {
         control = new PlayerControl();
@@ -22,7 +26,7 @@ public class FL_Input : ButtonActivator
         {
             if (ctx.interaction is TapInteraction)
             {
-                StartCoroutine(destroyNote.destroyInput(this.gameObject, pressedColor, oldColor));
+                StartCoroutine(destroyNote.destroyInput(this.gameObject, pressedColor, oldColor,input.FL));
             }
             else if (ctx.interaction is HoldInteraction)
             {
@@ -37,6 +41,10 @@ public class FL_Input : ButtonActivator
                 Debug.Log("Press");
             }
         };
+
+       
+
+
     }
     // Start is called before the first frame update
     void Start()
@@ -47,6 +55,7 @@ public class FL_Input : ButtonActivator
     // Update is called once per frame
     void Update()
     {
+        
         //FLDestroy.performed += ctx =>
         //{
         //    if (ctx.interaction is TapInteraction)
@@ -54,6 +63,34 @@ public class FL_Input : ButtonActivator
         //        StartCoroutine(destroyNote.destroyInput(this.gameObject, pressedColor, oldColor));
         //    }
         //};
+    }
+
+    public void buttonPressed()
+    {
+
+        if (input.FL == 0)
+            this.GetComponent<SpriteRenderer>().color = new Color(oldColor.r, oldColor.g, oldColor.b);
+
+
+        if (input.FL == 1 && remainingTime < 5f && disable == false)
+        {
+            StartCoroutine(destroyNote.destroyInput(this.gameObject, pressedColor, oldColor, input.FL));
+            remainingTime += 1;
+            destroyNote.destroyNote(collidNote);
+            collidNote = null;
+
+        }
+        else
+        {
+            remainingTime = 0;
+            disable = true;
+            if (disable && input.FL == 0)
+            {
+                disable = false;
+            }
+        }
+
+
     }
 
     private void OnDisable()
@@ -64,6 +101,7 @@ public class FL_Input : ButtonActivator
     private void OnTriggerEnter2D(Collider2D collision)
     {
         note = collision.gameObject;
+        collidNote = note;
 
         if (note.tag == "FLNote")
         {
@@ -71,15 +109,18 @@ public class FL_Input : ButtonActivator
             {
                 if (ctx.interaction is TapInteraction)
                 {
-                    StartCoroutine(destroyNote.destroyInput(this.gameObject, pressedColor, oldColor));
+                    StartCoroutine(destroyNote.destroyInput(this.gameObject, pressedColor, oldColor, input.FL));
                     //Destroy(note);
                     destroyNote.destroyNote(note);
                 }
             };
+
         }
         else
         {
             Physics2D.IgnoreCollision(collision, GetComponent<Collider2D>());
         }
+
+        
     }
 }

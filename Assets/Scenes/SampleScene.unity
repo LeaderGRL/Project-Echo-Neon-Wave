@@ -516,6 +516,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
   pressedColor: {r: 0, g: 0.98039216, b: 1, a: 0}
   oldColor: {r: 1, g: 0, b: 0, a: 0}
+  input: {fileID: 1315076399}
 --- !u!114 &161452073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2131,11 +2132,59 @@ MonoBehaviour:
   stopAllOnPause: 0
   autoReconnect: 1
   autoReconnectDelay: 5
-  shouldReconnect: 0
+  shouldReconnect: 1
   blackListedPorts: []
   OnDataReceivedEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 771395423}
+        m_TargetAssemblyTypeName: FL_Input, Assembly-CSharp
+        m_MethodName: buttonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 161452072}
+        m_TargetAssemblyTypeName: FR_Input, Assembly-CSharp
+        m_MethodName: ButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1607770023}
+        m_TargetAssemblyTypeName: L_Input, Assembly-CSharp
+        m_MethodName: ButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1022498398}
+        m_TargetAssemblyTypeName: R_Input, Assembly-CSharp
+        m_MethodName: ButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnBoardConnectedEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -2603,6 +2652,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
   pressedColor: {r: 0, g: 0.98039216, b: 1, a: 0}
   oldColor: {r: 1, g: 0, b: 0, a: 0}
+  input: {fileID: 1315076399}
 --- !u!114 &771395424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3913,6 +3963,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
   pressedColor: {r: 0, g: 0.9801898, b: 1, a: 0}
   oldColor: {r: 1, g: 0, b: 0, a: 0}
+  input: {fileID: 1315076399}
 --- !u!114 &1022498399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4259,6 +4310,10 @@ MonoBehaviour:
   laser: {fileID: 1394337526}
   rightLaser: {fileID: 1394337523}
   leftLaser: {fileID: 907051485}
+  FL: 0
+  L: 0
+  R: 0
+  FR: 1
 --- !u!4 &1315076400
 Transform:
   m_ObjectHideFlags: 0
@@ -5039,6 +5094,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
   pressedColor: {r: 0, g: 0.98039216, b: 1, a: 0}
   oldColor: {r: 1, g: 0, b: 0, a: 0}
+  input: {fileID: 1315076399}
 --- !u!114 &1607770024
 MonoBehaviour:
   m_ObjectHideFlags: 0
