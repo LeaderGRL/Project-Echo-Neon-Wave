@@ -5,6 +5,7 @@ using UnityEngine;
 public class DestroyNote : MonoBehaviour
 {
     GameObject note;
+ 
     private Score score = new Score();
 
     private void Awake()
@@ -15,7 +16,6 @@ public class DestroyNote : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -37,14 +37,18 @@ public class DestroyNote : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
     }
 
-    public void destroyNote(GameObject note)
-    {
+    public void destroyNote(GameObject note, GameObject impact)
+    {        
         if (note != null)
         {
             score.Incombo(1);
             Debug.Log("break combo");
+            GameObject imp = Instantiate(impact);
+            imp.transform.position = note.transform.position;
+            imp.GetComponent<ParticleSystem>().Play();
+
         }
-        
+      
         Destroy(note);
         score.BreakCombo(1);
     }

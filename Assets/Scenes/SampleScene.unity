@@ -517,6 +517,7 @@ MonoBehaviour:
   pressedColor: {r: 0, g: 0.98039216, b: 1, a: 0}
   oldColor: {r: 1, g: 0, b: 0, a: 0}
   input: {fileID: 1315076399}
+  impact: {fileID: 2708598583397607911, guid: 6398d43fe79ea0140913dc5530c646af, type: 3}
 --- !u!114 &161452073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -524,7 +525,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 161452067}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d8e85c1223e3f645b1997b363734081, type: 3}
   m_Name: 
@@ -745,7 +746,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4a47db9d583112b4bb2f41746f34f75d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2126,7 +2127,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: e35708e400b2ce94fa05d73a657ea22f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2738,6 +2739,7 @@ MonoBehaviour:
   pressedColor: {r: 0, g: 0.98039216, b: 1, a: 0}
   oldColor: {r: 1, g: 0, b: 0, a: 0}
   input: {fileID: 1315076399}
+  impact: {fileID: 2708598583397607911, guid: 6398d43fe79ea0140913dc5530c646af, type: 3}
 --- !u!114 &771395424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2745,7 +2747,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 771395418}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d8e85c1223e3f645b1997b363734081, type: 3}
   m_Name: 
@@ -4057,6 +4059,7 @@ MonoBehaviour:
   pressedColor: {r: 0, g: 0.9801898, b: 1, a: 0}
   oldColor: {r: 1, g: 0, b: 0, a: 0}
   input: {fileID: 1315076399}
+  impact: {fileID: 2708598583397607911, guid: 6398d43fe79ea0140913dc5530c646af, type: 3}
 --- !u!114 &1022498399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4064,7 +4067,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1022498393}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d8e85c1223e3f645b1997b363734081, type: 3}
   m_Name: 
@@ -5188,6 +5191,7 @@ MonoBehaviour:
   pressedColor: {r: 0, g: 0.98039216, b: 1, a: 0}
   oldColor: {r: 1, g: 0, b: 0, a: 0}
   input: {fileID: 1315076399}
+  impact: {fileID: 2708598583397607911, guid: 6398d43fe79ea0140913dc5530c646af, type: 3}
 --- !u!114 &1607770024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5195,7 +5199,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1607770018}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d8e85c1223e3f645b1997b363734081, type: 3}
   m_Name: 

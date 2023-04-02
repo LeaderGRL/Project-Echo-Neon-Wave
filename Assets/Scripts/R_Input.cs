@@ -10,6 +10,7 @@ public class R_Input : ButtonActivator
     public Color pressedColor;
     public Color oldColor;
     public Movement_Input input;
+    public GameObject impact;
     private GameObject collidNote;
     private float remainingTime;
     private bool disable = false;
@@ -49,7 +50,7 @@ public class R_Input : ButtonActivator
         {
             StartCoroutine(destroyNote.destroyInput(this.gameObject, pressedColor, oldColor, input.R));
             remainingTime += 1;
-            destroyNote.destroyNote(collidNote);
+            destroyNote.destroyNote(collidNote, impact);
             collidNote = null;
 
         }
@@ -93,7 +94,7 @@ public class R_Input : ButtonActivator
                 {
                   //  StartCoroutine(destroyNote.destroyInput(this.gameObject, pressedColor, oldColor));
                     //Destroy(note);
-                    destroyNote.destroyNote(note);
+                    destroyNote.destroyNote(note, impact);
                     Debug.Log(note);
                 }
             };

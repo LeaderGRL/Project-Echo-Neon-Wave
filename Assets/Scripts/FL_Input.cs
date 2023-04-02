@@ -10,6 +10,7 @@ public class FL_Input : ButtonActivator
     public Color pressedColor;
     public Color oldColor;
     public Movement_Input input;
+    public GameObject impact;
     private float remainingTime = 0f;
     private bool disable;
     private GameObject collidNote;
@@ -76,7 +77,7 @@ public class FL_Input : ButtonActivator
         {
             StartCoroutine(destroyNote.destroyInput(this.gameObject, pressedColor, oldColor, input.FL));
             remainingTime += 1;
-            destroyNote.destroyNote(collidNote);
+            destroyNote.destroyNote(collidNote, impact);
             collidNote = null;
 
         }
@@ -111,7 +112,7 @@ public class FL_Input : ButtonActivator
                 {
                     StartCoroutine(destroyNote.destroyInput(this.gameObject, pressedColor, oldColor, input.FL));
                     //Destroy(note);
-                    destroyNote.destroyNote(note);
+                    destroyNote.destroyNote(note, impact);
                 }
             };
 
