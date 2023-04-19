@@ -18,15 +18,15 @@ public class Score : MonoBehaviour
     public void Incombo()
     {
         if (nbCombo < 8)
-            {
-                nbCombo += 1;
-                score += 10 * nbCombo;
-            }
-            else
-            {
-                nbCombo = 8;
-                score += 10 * nbCombo;
-            }
+        {
+            nbCombo += 1;
+            score += 10 * nbCombo;
+        }
+        else
+        {
+            nbCombo = 8;
+            score += 10 * nbCombo;
+        }
     }
 
     public static void BreakCombo()
