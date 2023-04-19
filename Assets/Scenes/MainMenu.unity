@@ -2350,7 +2350,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: f6082139895b8af4981b29a24cc109eb, type: 3}
     - target: {fileID: 6558219753960924084, guid: ae75443c08731ca4eb54f3e321a9e6a9, type: 3}
       propertyPath: m_Text
-      value: Wii sport
+      value: Wii Sports
       objectReference: {fileID: 0}
     - target: {fileID: 6558219754045523786, guid: ae75443c08731ca4eb54f3e321a9e6a9, type: 3}
       propertyPath: m_Text

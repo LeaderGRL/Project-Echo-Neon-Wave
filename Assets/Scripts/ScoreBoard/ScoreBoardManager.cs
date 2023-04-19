@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System;
+using System.Collections;
+using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,10 +12,16 @@ public class ScoreBoardManager : MonoBehaviour
     public GameObject rowPrefab;
     private string save = "";
     public Transform rowsParent;
+    private DataArray dataArray;
 
-    private void Start()
+
+    void Awake()
     {
+        string path = Directory.GetCurrentDirectory() + "/Assets/database/database.json";
+
+        dataArray = new DataBase().JsonReader(path);
     }
+
     private void Update()
     {
         GameObject thePlayer = GameObject.Find("Pivot");
@@ -23,69 +31,39 @@ public class ScoreBoardManager : MonoBehaviour
         {
             GetScoreBoard(title);
         }
+
         save = title;
     }
 
     public void GetScoreBoard(string music)
     {
-        foreach(Transform item in rowsParent)
+        foreach (Transform item in rowsParent)
         {
             Destroy(item.gameObject);
         }
 
-        var reader = new StreamReader(File.OpenRead(@".\Assets\Audio\" + music + "\\Highscore.csv"));
-        List<string> listA = new List<string>();
-        List<string> listB = new List<string>();
-        List<Score> AllScore = new List<Score>();
-        while (!reader.EndOfStream)
+
+        foreach (MusicObject musicObject in dataArray.Data)
         {
-        var line = reader.ReadLine();
-        var values = line.Split(';');
-        listA.Add(values[0]);
-        listB.Add(values[1]);
-        }
-        for(int i = 0; i < 5; i++)
-        {
-            Score score = new Score();
-            score.Name = listA[i];
-            score.Scoring = Int32.Parse(listB[i]);
-            AllScore.Add(score);
-        }
-        AllScore.Sort((x, y) => x.Scoring.CompareTo(y.Scoring));
-        AllScore.Reverse();
-        int position = 1;
-        foreach (Score score in AllScore)
-        {
-            GameObject newGo = Instantiate(rowPrefab, rowsParent);
-            Text[] texts = newGo.GetComponentsInChildren<Text>();
-            texts[0].text = position.ToString();
-            texts[1].text = score.Name;
-            texts[2].text = score.Scoring.ToString();
-            position++;
+            if (musicObject.Name == music)
+            {
+                int i = 1;
+                Array.Sort(musicObject.Players, new Comparer());
+                foreach (Player player in musicObject.Players)
+                {
+                    rowPrefab.transform.Find("Name").GetComponent<Text>().text = player.Pseudo;
+                    rowPrefab.transform.Find("Score").GetComponent<Text>().text = player.Score.ToString();
+                    rowPrefab.transform.Find("Rank").GetComponent<Text>().text = i.ToString();
+                    Instantiate(rowPrefab, rowsParent);
+                    if (i == 5)
+                    {
+                        break;
+                    }
+                    i++;
+
+                }
+
+            }
         }
     }
-
-    void OnScoreboardGet()
-    {
-
-    }
-
-
-    public struct Scores
-    {
-        public List<Score> Allscores;
-    }
-
-    public struct Score
-    {
-        public string Name;
-        public int Scoring;
-
-        public Score(string pseudo, int scoring,int rank)
-        {
-            this.Name = pseudo;
-            this.Scoring = scoring;
-        }
-    }
-
 }

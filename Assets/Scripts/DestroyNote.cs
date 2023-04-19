@@ -41,16 +41,15 @@ public class DestroyNote : MonoBehaviour
     {        
         if (note != null)
         {
-            score.Incombo(1);
-            Debug.Log("break combo");
             GameObject imp = Instantiate(impact);
+            score.Incombo();
             imp.transform.position = note.transform.position;
+            LifePoint.Regeneration();
             imp.GetComponent<ParticleSystem>().Play();
 
         }
       
         Destroy(note);
-        score.BreakCombo(1);
     }
 
     //private void OnTriggerEnter2D(Collider2D col)

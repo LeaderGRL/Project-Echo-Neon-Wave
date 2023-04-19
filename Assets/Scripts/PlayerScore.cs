@@ -34,7 +34,7 @@ public class PlayerScore : MonoBehaviour
     void Update()
     {
         score = Score.getScore();
-        if(Audio.finMusique() ==true)
+        if(Audio.finMusique() == true)
         {
             endGame = true;
         }

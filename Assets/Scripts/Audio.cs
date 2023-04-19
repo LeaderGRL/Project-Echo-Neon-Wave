@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Audio : MonoBehaviour
 {
-    AudioSource audioSource;
+    static AudioSource audioSource;
     public static float timeMusique;
     public static float lengthMusique;
 
@@ -20,7 +18,7 @@ public class Audio : MonoBehaviour
 
     }
 
-    public static bool  finMusique()
+    public static bool finMusique()
     {
         if (lengthMusique == timeMusique)
         {
@@ -32,5 +30,16 @@ public class Audio : MonoBehaviour
         {
             return false;
         }
+    }
+
+    public static string GetMusiqueName()
+    {
+        string myString = audioSource.clip.ToString();
+        int length = 24;
+        int startIndex = myString.Length - length;
+
+        string name = myString.Remove(startIndex, length);
+
+        return name;
     }
 }
