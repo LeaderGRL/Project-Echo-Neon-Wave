@@ -1,4 +1,0 @@
-repository "Project ECHO - Neon Wave@jordangrilly_gmail_com@cloud"
-  path "/"
-    br "/main"
-    co "/main"
