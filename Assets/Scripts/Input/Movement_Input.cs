@@ -59,25 +59,26 @@ public class Movement_Input : MonoBehaviour
 
     private void FixedUpdate()
     {
-        laser.turnRight(rightLaser, rightCursorValue);
-        laser.turnRight(leftLaser, leftCursorValue);
+        //laser.turnRight(rightLaser, rightCursorValue);
+        //laser.turnRight(leftLaser, leftCursorValue);
 
-        //if (rMovement.ReadValue<float>() == 1)
-        //{
-        //}
-        //else if (rMovement.ReadValue<float>() == -1)
-        //{
-        //    laser.turnLeft(GameObject.Find("RightLaserEye"));
-        //}
+        if (rMovement.ReadValue<float>() == 1)
+        {
+            laser.turnLeftKeyboard(GameObject.Find("RightLaserEye"), -0.3f);
+        }
+        else if (rMovement.ReadValue<float>() == -1)
+        {
+            laser.turnLeftKeyboard(GameObject.Find("RightLaserEye"), 0.3f);
+        }
 
-        //    if (lMovement.ReadValue<float>() == -1)
-        //    {
-        //        laser.turnLeft(GameObject.Find("LeftLaserEye"));
-        //    }
-        //    else if (lMovement.ReadValue<float>() == 1)
-        //    {
-        //        laser.turnRight(GameObject.Find("LeftLaserEye"));
-        //    }
+        if (lMovement.ReadValue<float>() == -1)
+        {
+            laser.turnRightKeyboard(GameObject.Find("LeftLaserEye"), -0.3f);
+        }
+        else if (lMovement.ReadValue<float>() == 1)
+        {
+            laser.turnRightKeyboard(GameObject.Find("LeftLaserEye"), 0.3f) ;
+        }
     }
 
     public void DataReceived(string Data, UduinoDevice board)

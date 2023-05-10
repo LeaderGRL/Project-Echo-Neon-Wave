@@ -99,6 +99,7 @@ public class Laser : MonoBehaviour
 
         for (int i = 0; i < 1000; i++)
         {
+            Debug.Log("test : " + nLaser);
             laserShapeController.spline.Clear();
             laserShapeController.splineDetail = renderQuality; //High quality
             laserShapeController.enableTangents = true;
@@ -114,6 +115,7 @@ public class Laser : MonoBehaviour
                 //Debug.Log(spline.GetPointCount());
                 spline.SetTangentMode(spline.GetPointCount() - 1, ShapeTangentMode.Continuous);
                 spline.SetHeight(spline.GetPointCount() - 1, 1.0f);
+                Debug.Log("LINE LENGTH :" + line.Length);
                 if (line.Substring(line.Length - nLaser)[0] == '3') // Turn right
                 {
                     RLPosX++;

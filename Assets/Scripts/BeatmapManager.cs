@@ -114,7 +114,7 @@ public class BeatmapManager : MonoBehaviour
     void initReader()
     {
         gamePath = Application.dataPath; //Get the current project path
-        beatmapPath = gamePath + "/Audio/Sports Theme-Wii.pe";
+        beatmapPath = gamePath + "/Audio/GhostFight.pe";
         //beatmapPath = gamePath + "/Audio/Tokyo Machine - PLAY.pe";
         //beatmapPath = gamePath + "/Audio/testMusic.pe";
         beatmapInfo = new StreamReader(beatmapPath);
@@ -147,7 +147,7 @@ public class BeatmapManager : MonoBehaviour
         note.GetComponent<BoxCollider2D>().isTrigger = true;
         note.GetComponent<BoxCollider2D>().size = new Vector3(1, 0.87f, 0);
         note.AddComponent<Note>();
-        note.GetComponent<Note>().speed = 27;
+        note.GetComponent<Note>().speed = 12f;
         note.GetComponent<Renderer>().enabled = false;
         //Debug.Log(note.GetComponent<SpriteRenderer>().bounds.size);
     }
@@ -167,7 +167,7 @@ public class BeatmapManager : MonoBehaviour
         line.AddComponent<BoxCollider2D>();
         line.GetComponent<BoxCollider2D>().isTrigger = true;
         line.AddComponent<Note>();
-        line.GetComponent<Note>().speed = 27f;
+        line.GetComponent<Note>().speed = 12f;
         line.GetComponent<Renderer>().enabled = false;
         line.layer = LayerMask.NameToLayer("Lines");
 
@@ -466,55 +466,55 @@ public class BeatmapManager : MonoBehaviour
     {
 
 
-        /*if (beatmapLaser != null)
-        {
+    //    if (beatmapLaser != null)
+    //    {
 
            
-                while (beatmapLaser.ReadLine() != null )
-                {
-                    string line = beatmapLaser.ReadLine();
-                    if (line.Substring(line.Length - 2)[0] != '0' && line != "--")
-                    {
-                        leftLaserList.Add(line.Substring(line.Length - 2)[0]);
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
+    //            while (beatmapLaser.ReadLine() != null )
+    //            {
+    //                string line = beatmapLaser.ReadLine();
+    //                if (line.Substring(line.Length - 2)[0] != '0' && line != "--")
+    //                {
+    //                    leftLaserList.Add(line.Substring(line.Length - 2)[0]);
+    //                }
+    //                else
+    //                {
+    //                    break;
+    //                }
+    //            }
 
-                while (line.Substring(line.Length - 1)[0] != '0')
-                {
-                    rightLaserList.Add(line.Substring(line.Length - 1)[0]);
-                }
-            }
-            else if (line == null)
-            {
-                beatmapLaser.Close();
-                beatmapLaser = null;
-            }
+    //            while (line.Substring(line.Length - 1)[0] != '0')
+    //            {
+    //                rightLaserList.Add(line.Substring(line.Length - 1)[0]);
+    //            }
+    //        }
+    //        else if (line == null)
+    //        {
+    //            beatmapLaser.Close();
+    //            beatmapLaser = null;
+    //        }
 
 
-            /*for (int i = 0; i < 32; i++)
-            {
-                string line = beatmapLaser.ReadLine();
-                if (line != "--" && line != null)
-                {
-                    leftLaserList.Add(line.Substring(line.Length - 2)[0]);
-                    rightLaserList.Add(line.Substring(line.Length - 1)[0]);
-                    //Debug.Log("Laser : " + line.Substring(line.Length - 1)[0]);
-                }
-                else if (line == null)
-                {
-                    beatmapLaser.Close();
-                    beatmapLaser = null;
-                    break;
-                }
-                else
-                {
-                    i = i - 1;
-                }
-            }
-        }*/
+    //        for (int i = 0; i < 32; i++)
+    //        {
+    //            string line = beatmapLaser.ReadLine();
+    //            if (line != "--" && line != null)
+    //            {
+    //                leftLaserList.Add(line.Substring(line.Length - 2)[0]);
+    //                rightLaserList.Add(line.Substring(line.Length - 1)[0]);
+    //                //Debug.Log("Laser : " + line.Substring(line.Length - 1)[0]);
+    //            }
+    //            else if (line == null)
+    //            {
+    //                beatmapLaser.Close();
+    //                beatmapLaser = null;
+    //                break;
+    //            }
+    //            else
+    //            {
+    //                i = i - 1;
+    //            }
+    //        }
+    //    }
     }
 }

@@ -57,11 +57,11 @@ public class LaserEyes : MonoBehaviour
 
     public void turnLeft(GameObject obj, float value)
     {
-        
-            position = obj.transform.position;
-            position.x = value;
-            obj.transform.position = position;
-        
+
+        position = obj.transform.position;
+        position.x = value;
+        obj.transform.position = position;
+
     }
 
     public void turnRight(GameObject obj, float value)
@@ -70,6 +70,40 @@ public class LaserEyes : MonoBehaviour
         {
             position = obj.transform.position;
             position.x = -value;
+            obj.transform.position = position;
+        }
+    }
+
+    public void turnLeftKeyboard(GameObject obj, float value)
+    {
+        if (obj.transform.position.x <= 4.8)
+        {
+            position = obj.transform.position;
+            position.x -= value;
+            obj.transform.position = position;
+        }
+
+        if (obj.transform.position.x <= -4.8)
+        {
+            position = obj.transform.position;
+            position.x = -4.8f;
+            obj.transform.position = position;
+        }
+    }
+
+    public void turnRightKeyboard(GameObject obj, float value)
+    {
+        if (obj.transform.position.x <= 4.8)
+        {
+            position = obj.transform.position;
+            position.x += value;
+            obj.transform.position = position;
+        }
+        
+        if (obj.transform.position.x <= -4.8)
+        {
+            position = obj.transform.position;
+            position.x = -4.8f;
             obj.transform.position = position;
         }
     }
